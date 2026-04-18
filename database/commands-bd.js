@@ -40,8 +40,22 @@ async function createNewOrder(nomeCliente, valor, comanda) {
     }
 }
 
+async function deleteOrder(idOrder) {
+    if(idOrder){
+        await client.client.connect();
+        const values = [idOrder];
+
+        await client.client.query(`DELETE FROM pedidos WHERE idpedido = $1`, values);
+        await client.client.end();
+    }
+    else{
+        return "Verifique se voce inseriu todos os dados";
+    }
+}
+
 module.exports = {
     getWithoutParameters:getWithoutParameters,
     getWithParameters: getWithParameters,
-    createNewOrder: createNewOrder
+    createNewOrder: createNewOrder,
+    deleteOrder: deleteOrder
 }
