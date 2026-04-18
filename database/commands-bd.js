@@ -27,7 +27,21 @@ async function getWithParameters(nome){
     }
 }
 
+async function createNewOrder(nomeCliente, valor, comanda) {
+    if(nomeCliente && valor && comanda){
+        await client.client.connect();
+        const values = [comanda, valor, false, nomeCliente];
+
+        await client.client.query(`INSERT INTO pedidos(comandapedido, valorpedido, finalizadopedido, clientepedido) VALUES($1, $2, $3, $4)`, values);
+        await client.client.end();
+    }
+    else{
+        return "Verifique se voce inseriu todos os dados";
+    }
+}
+
 module.exports = {
     getWithoutParameters:getWithoutParameters,
-    getWithParameters: getWithParameters
+    getWithParameters: getWithParameters,
+    createNewOrder: createNewOrder
 }
