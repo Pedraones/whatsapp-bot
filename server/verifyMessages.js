@@ -12,8 +12,9 @@ async function getMessages(messages){
                         send.sendListCommands();
                         break;
                     
-                    case "#INSTRUCAO VER PEDIDOS#":
+                    case "#INSTRUCAO VER TODOS OS PEDIDOS#":
                         console.log("instrucao ver pedidos");
+                        send.sendStructGetAllOrder();
                         break;
                         
                     case "#INSTRUCAO VER PEDIDO ESPECIFICO#":
@@ -28,6 +29,7 @@ async function getMessages(messages){
                     
                     case "#INSTRUCAO ATUALIZAR PEDIDO#":
                         console.log("instrucao atualizar pedido");
+                        send.sendStructUpdateOrderSpecified();
                         break;
                 }
             }

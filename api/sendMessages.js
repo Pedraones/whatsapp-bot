@@ -70,6 +70,27 @@ async function sendStructGetOrderSpecified(){
   .then(json => console.log(json)).catch(err => console.error(err));
 }
 
+async function sendStructGetAllOrder(){
+  var message = "Para ver todos o pedidos apenas digite: #VER TODOS OS PEDIDOS#"
+
+  const options = {
+    method: 'POST',
+    headers: {
+      accept: 'application/json',
+      'content-type': 'application/json',
+      authorization: process.env.TOKEN_API
+    },
+    body: JSON.stringify({
+      typing_time: 0,
+      to: '5515998282773@s.whatsapp.net',
+      body: message
+    })
+  };
+
+  fetch(url, options).then(res => res.json())
+  .then(json => console.log(json)).catch(err => console.error(err));
+}
+
 async function sendStructUpdateOrderSpecified(){
   var message = "Para atualizar um pedido siga o seguinte formato: \n" + 
                 "Id do pedido: \n" +
@@ -99,5 +120,6 @@ module.exports = {
   sendListCommands: sendListCommands,
   sendStructAddOrder: sendStructAddOrder,
   sendStructGetOrderSpecified: sendStructGetOrderSpecified,
+  sendStructGetAllOrder: sendStructGetAllOrder,
   sendStructUpdateOrderSpecified: sendStructUpdateOrderSpecified
 }
