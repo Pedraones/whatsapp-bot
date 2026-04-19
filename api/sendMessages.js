@@ -70,8 +70,34 @@ async function sendStructGetOrderSpecified(){
   .then(json => console.log(json)).catch(err => console.error(err));
 }
 
+async function sendStructUpdateOrderSpecified(){
+  var message = "Para atualizar um pedido siga o seguinte formato: \n" + 
+                "Id do pedido: \n" +
+                "A informação que deseja alterar (comanda, valor, nome do cliente): \n" + 
+                "Novo informacação: \n" + 
+                "Mantenha o texto anterior, apenas insira o id do pedido, a informação a ser alterada (da forma como está, mas para mudar o nome do cliente coloque apenas 'nome') e a nova informação";
+
+  const options = {
+    method: 'POST',
+    headers: {
+      accept: 'application/json',
+      'content-type': 'application/json',
+      authorization: process.env.TOKEN_API
+    },
+    body: JSON.stringify({
+      typing_time: 0,
+      to: '5515998282773@s.whatsapp.net',
+      body: message
+    })
+  };
+
+  fetch(url, options).then(res => res.json())
+  .then(json => console.log(json)).catch(err => console.error(err));
+}
+
 module.exports = {
   sendListCommands: sendListCommands,
   sendStructAddOrder: sendStructAddOrder,
-  sendStructGetOrderSpecified: sendStructGetOrderSpecified
+  sendStructGetOrderSpecified: sendStructGetOrderSpecified,
+  sendStructUpdateOrderSpecified: sendStructUpdateOrderSpecified
 }
