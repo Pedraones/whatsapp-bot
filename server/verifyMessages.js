@@ -8,25 +8,25 @@ async function getMessages(messages){
             if(element.text && element.chat_id == chatCorrect){    
                 switch (element.text.body){
                     case "#LISTAR COMANDOS#":
-                        console.log("listar comandos")
+                        console.log("instrucao listar comandos")
                         send.sendListCommands();
                         break;
                     
-                    case "#VER PEDIDOS#":
-                        console.log("ver pedidos");
+                    case "#INSTRUCAO VER PEDIDOS#":
+                        console.log("instrucao ver pedidos");
                         break;
         
-                    case "#VER PEDIDO ESPECIFICO#":
-                        console.log("ver pedido especifico");
+                    case "#INSTRUCAO VER PEDIDO ESPECIFICO#":
+                        console.log("instrucao ver pedido especifico");
                         break;
                     
-                    case "#ADICIONAR PEDIDOS#":
-                    console.log("adicionar pedidos");
-                    break;
+                    case "#INSTRUCAO ADICIONAR PEDIDO#":
+                        console.log("instrucao adicionar pedidos");
+                        break;
                     
-                    case "#ATUALIZAR PEDIDO#":
-                    console.log("atualizar pedidos");
-                    break;
+                    case "#INSTRUCAO ATUALIZAR PEDIDO#":
+                        console.log("instrucao atualizar pedido");
+                        break;
                 }
             }
         });
