@@ -23,6 +23,7 @@ async function getMessages(messages){
                     
                     case "#INSTRUCAO ADICIONAR PEDIDO#":
                         console.log("instrucao adicionar pedidos");
+                        send.sendStructAddOrder();
                         break;
                     
                     case "#INSTRUCAO ATUALIZAR PEDIDO#":
