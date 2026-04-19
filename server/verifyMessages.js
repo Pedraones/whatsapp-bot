@@ -14,6 +14,7 @@ async function getMessages(messages){
                     
                     case "#INSTRUCAO VER PEDIDOS#":
                         console.log("instrucao ver pedidos");
+                        send.sendStructGetOrderSpecified()
                         break;
         
                     case "#INSTRUCAO VER PEDIDO ESPECIFICO#":

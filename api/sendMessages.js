@@ -47,7 +47,31 @@ async function sendStructAddOrder(){
   .then(json => console.log(json)).catch(err => console.error(err));
 }
 
+async function sendStructGetOrderSpecified(){
+  var message = "Para visualizar um pedido siga o seguinte formato: \n" + 
+                "Nome do cliente que tem pedido: \n" + 
+                "Mantenha o texto anterior, apenas insira o nome do cliente a frente com 1 espaco depois dos ':'";
+
+  const options = {
+    method: 'POST',
+    headers: {
+      accept: 'application/json',
+      'content-type': 'application/json',
+      authorization: process.env.TOKEN_API
+    },
+    body: JSON.stringify({
+      typing_time: 0,
+      to: '5515998282773@s.whatsapp.net',
+      body: message
+    })
+  };
+
+  fetch(url, options).then(res => res.json())
+  .then(json => console.log(json)).catch(err => console.error(err));
+}
+
 module.exports = {
   sendListCommands: sendListCommands,
-  sendStructAddOrder: sendStructAddOrder
+  sendStructAddOrder: sendStructAddOrder,
+  sendStructGetOrderSpecified: sendStructGetOrderSpecified
 }
