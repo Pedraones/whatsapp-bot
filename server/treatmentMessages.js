@@ -7,10 +7,19 @@ function treatmentAddOrder(message){
     const nome = message[1].replace("Nome: ", "");
     const pedido = message[2].replace("Pedido: ", "");
     const valor = message[3].replace("Valor: ", "");
-    
+
     console.log(nome);
     console.log(valor);
     console.log(pedido);
+}
+function treatmentUpdateOrder(message){
+    const id = message[1].replace("Id do pedido: ", "");
+    const campoSerAlterado = message[2].replace("A informação que deseja alterar: ", "");
+    const novaInformacao = message[3].replace("Nova informação: ", "");
+
+    console.log(id)
+    console.log(campoSerAlterado)
+    console.log(novaInformacao)
 }
 
 function simpleTreatmentMessage(message){
@@ -22,5 +31,6 @@ function simpleTreatmentMessage(message){
 module.exports = {
     treatmentGetOrderSpecified: treatmentGetOrderSpecified,
     treatmentAddOrder: treatmentAddOrder,
+    treatmentUpdateOrder:treatmentUpdateOrder,
     simpleTreatmentMessage: simpleTreatmentMessage
 }

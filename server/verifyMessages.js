@@ -53,7 +53,7 @@ async function getMessages(messages){
 
                         case "#ATUALIZAR PEDIDO#":
                         console.log("atualizar pedido");
-                        
+                        treatment.treatmentUpdateOrder(messageTreated);
                         break;
 
                     }
