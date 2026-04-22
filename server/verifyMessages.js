@@ -7,7 +7,7 @@ async function getMessages(messages){
     if(messages){
         messages.forEach(element => {
             if(element.text && element.chat_id == chatCorrect){  
-                const messageTreated = treatment.simplesTreatmentMessage(element.text);
+                const messageTreated = treatment.simpleTreatmentMessage(element.text);
 
                 if(messageTreated){
                     switch (messageTreated[0]){
@@ -35,7 +35,7 @@ async function getMessages(messages){
                             console.log("instrucao atualizar pedido");
                             send.sendStructUpdateOrderSpecified();
                             break;
-                            
+
                         case "#VER TODOS OS PEDIDOS#":
                         console.log("ver todos os pedidos");
                         
@@ -43,7 +43,7 @@ async function getMessages(messages){
 
                         case "#VER PEDIDO ESPECIFICO#":
                         console.log("ver pedido especifico");
-                        
+                        treatment.treatmentGetOrderSpecified(messageTreated);
                         break;
 
                         case "#ADICIONAR PEDIDO#":

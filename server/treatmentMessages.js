@@ -1,4 +1,7 @@
-
+function treatmentGetOrderSpecified(message){
+    const nome = message[1].replace("Nome do cliente que tem pedido: ", "");
+    console.log(nome);
+}
 
 function simpleTreatmentMessage(message){
     const text = message.body;
@@ -7,5 +10,6 @@ function simpleTreatmentMessage(message){
 }
 
 module.exports = {
-    simplesTreatmentMessage: simplesTreatmentMessage
+    treatmentGetOrderSpecified: treatmentGetOrderSpecified,
+    simpleTreatmentMessage: simpleTreatmentMessage
 }
