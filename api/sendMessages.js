@@ -2,7 +2,16 @@ require('dotenv').config()
 const url = 'https://gate.whapi.cloud/messages/text';
 
 async function sendListCommands(){
-  var message = "Lista todos os comandos disponiveis: \n#ADICIONAR PEDIDO# = Adicionar um novo pedido \n#VER PEDIDOS# = Ver os pedidos pendentes \n#ATUALIZAR PEDIDO# = Atualizar os pedidos pendentes \n#VER COMANDOS# = Lista os comandos existentes no momento";
+  var message = "Lista de todos os comandos disponiveis: \n\n" + 
+  "#INSTRUCAO VER TODOS OS PEDIDOS# = Fala como faz para ver as informacoes todos os pedidos \n" + 
+  "#INSTRUCAO VER PEDIDO ESPECIFICO# = Fala como faz para ver as informacoes de um pedido especifico \n" +
+  "#INSTRUCAO ADICIONAR PEDIDO# = Diz como faz para adicionar um novo pedido \n" +
+  "#INSTRUCAO ATUALIZAR PEDIDO# = Instrui o que deve ser feito para atualizar 1 informacao de um pedido (se for dizer que o pedido foi finalizado, instantaneamente sera excluido, nao sendo possivel consulta-lo mais) \n" +
+  "#ADICIONAR PEDIDO# = Adicionar um novo pedido \n" + 
+  "#VER PEDIDOS# = Ver os pedidos pendentes \n" +
+  "#VER PEDIDO ESPECIFICO# = Ver todas as informacoes de um pedido especifico \n" + 
+  "#ATUALIZAR PEDIDO# = Atualizar os pedidos pendentes \n" + 
+  "#LISTAR COMANDOS# = Lista os comandos existentes no momento";
   
   const options = {
     method: 'POST',
@@ -27,7 +36,7 @@ async function sendStructAddOrder(){
                 "Nome: \n" + 
                 "Pedido: \n" + 
                 "Valor: \n" +
-                "Mais instrucoes: Mantenha os campos sinalizados anteriormente, apenas complete com as informacoes necessarias; Em 'Valor' nao insira 'R$', apenas coloque o valor, separando inteiros de centavos com um ponto(.); Em 'Finalizado', 'nao' deve ser sem ~";
+                "Mais instrucoes: Mantenha os campos sinalizados anteriormente, apenas complete com as informacoes necessarias; Em 'Valor' nao insira 'R$', apenas coloque o valor, separando inteiros de centavos com um ponto(.);";
 
   const options = {
     method: 'POST',
@@ -95,8 +104,8 @@ async function sendStructUpdateOrderSpecified(){
   var message = "Para atualizar um pedido siga o seguinte formato: \n" + 
                 "Id do pedido: \n" +
                 "A informação que deseja alterar (comanda, valor, nome do cliente): \n" + 
-                "Novo informacação: \n" + 
-                "Mantenha o texto anterior, apenas insira o id do pedido, a informação a ser alterada (da forma como está, mas para mudar o nome do cliente coloque apenas 'nome') e a nova informação";
+                "Nova informacação: \n" + 
+                "Mantenha o texto anterior, apenas insira o id do pedido (para ver o id, faça uma consulta do pedido, #VER PEDIDO ESPECIFICO#), a informação a ser alterada (da forma como está, mas para mudar o nome do cliente coloque apenas 'nome') e a nova informação";
 
   const options = {
     method: 'POST',
