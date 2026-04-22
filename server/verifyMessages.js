@@ -5,7 +5,7 @@ async function getMessages(messages){
     
     if(messages){
         messages.forEach(element => {
-            if(element.text && element.chat_id == chatCorrect){    
+            if(element.text && element.chat_id == chatCorrect){   
                 switch (element.text.body){
                     case "#LISTAR COMANDOS#":
                         console.log("instrucao listar comandos")
@@ -31,6 +31,26 @@ async function getMessages(messages){
                         console.log("instrucao atualizar pedido");
                         send.sendStructUpdateOrderSpecified();
                         break;
+
+                    case "#VER TODOS OS PEDIDOS#":
+                    console.log("ver todos os pedidos");
+                    
+                    break;
+
+                    case "#VER PEDIDO ESPECIFICO#":
+                    console.log("ver pedido especifico");
+                    
+                    break;
+
+                    case "#ADICIONAR PEDIDO#":
+                    console.log("adicionar pedido");
+                    
+                    break;
+
+                    case "#ATUALIZAR PEDIDO#":
+                    console.log("atualizar pedido");
+                    
+                    break;
                 }
             }
         });
