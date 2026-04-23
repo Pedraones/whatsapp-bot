@@ -16,7 +16,9 @@ function treatmentAddOrder(message){
 function treatmentUpdateOrder(message){
     const id = message[1].replace("Id do pedido: ", "");
     const campoSerAlterado = message[2].replace("A informação que deseja alterar: ", "");
-    const novaInformacao = message[3].replace("Nova informação: ", "");
+    let novaInformacao = message[3].replace("Nova informação: ", "");
+
+    if(campoSerAlterado == "finalizado" && novaInformacao == "s") novaInformacao = true;
 
     const messageTreated = [message[0], id, campoSerAlterado, novaInformacao];
     return messageTreated;
