@@ -103,9 +103,9 @@ async function sendStructGetAllOrder(){
 async function sendStructUpdateOrderSpecified(){
   var message = "Para atualizar um pedido siga o seguinte formato: \n" + 
                 "Id do pedido: \n" +
-                "A informação que deseja alterar (comanda, valor, nome do cliente): \n" + 
+                "A informação que deseja alterar: (comanda, valor, nome do cliente, finalizado)\n" + 
                 "Nova informacação: \n" + 
-                "Mantenha o texto anterior, apenas insira o id do pedido (para ver o id, faça uma consulta do pedido, #VER PEDIDO ESPECIFICO#), a informação a ser alterada (da forma como está, mas para mudar o nome do cliente coloque apenas 'nome') e a nova informação";
+                "Mantenha o texto anterior, apenas insira o id do pedido (para ver o id, faça uma consulta do pedido, #VER PEDIDO ESPECIFICO#), a informação a ser alterada (da forma como está, mas para mudar o nome do cliente coloque apenas 'nome') e a nova informação (para 'finalizado', escreva s(sim))";
 
   const options = {
     method: 'POST',
