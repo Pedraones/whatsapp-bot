@@ -5,9 +5,10 @@ const treatment = require('./treatmentResponse')
 async function callComandBd(datas){
     const action = datas[0];
     let res;
+    const orders = [];
+
     switch(action){
         case "#VER TODOS OS PEDIDOS#":
-            const orders = [];
             res = await commands.getWithoutParameters();
             res.forEach(element => {
                 const responseTreated = treatment.treatmentResponseBD(element.row);
@@ -18,7 +19,6 @@ async function callComandBd(datas){
             break;
         
         case "#VER PEDIDO ESPECIFICO#":
-            const orders = [];
             res = await commands.getWithParameters(datas[1]);
             res.forEach(element => {
                 const responseTreated = treatment.treatmentResponseBD(element.row);
