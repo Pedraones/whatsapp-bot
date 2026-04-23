@@ -1,4 +1,4 @@
-async function treatmentResponseBD(res){
+function treatmentResponseBD(res){
     let response = res;
     response = response.replace("(", "");
     response = response.replace(")", "");
@@ -14,5 +14,5 @@ async function treatmentResponseBD(res){
 }
 
 module.exports = {
-    treatmentResponseGetAllOrders: treatmentResponseGetAllOrders
+    treatmentResponseBD: treatmentResponseBD
 }
