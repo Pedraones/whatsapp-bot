@@ -55,20 +55,20 @@ async function deleteOrder(idOrder) {
 
 async function updateOrder(idOrder, fieldWillUpdate, value) {
     if(fieldWillUpdate && value){
-        if(fieldWillUpdate == "finalizadopedido" && value == true){
+        if(fieldWillUpdate == "finalizado" && value == true){
             await deleteOrder(idOrder);
         }
         else{
             await client.client.connect();
             const values = [value, idOrder];
 
-            await client.client.query(`UPDATE pedidos SET ${fieldWillUpdate} = $1 WHERE idpedido = $2`, values);
-            await client.client.end();
+            await client.client.query(`UPDATE pedidos SET ${fieldWillUpdate}pedido = $1 WHERE idpedido = $2`, values);
         }
     }
     else{
         return "Verifique se voce inseriu todos os dados";
     }
+    await client.client.end();
 }
 
 module.exports = {
