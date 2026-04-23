@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/Pedraones/whatsapp-bot#readme",
   "dependencies": {
-    "dotenv": "^17.4.2"
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "pg": "^8.20.0"
   }
 }
