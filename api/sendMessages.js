@@ -34,8 +34,8 @@ async function sendListCommands(){
 async function sendStructAddOrder(){
   var message = "Para adicionar um novo pedido siga o seguinte formato: \n" + 
                 "Nome: \n" + 
-                "Pedido: \n" + 
                 "Valor: \n" +
+                "Pedido: \n" + 
                 "Mais instrucoes: Mantenha os campos sinalizados anteriormente, apenas complete com as informacoes necessarias; Em 'Valor' nao insira 'R$', apenas coloque o valor, separando inteiros de centavos com um ponto(.);";
 
   const options = {
@@ -125,10 +125,39 @@ async function sendStructUpdateOrderSpecified(){
   .then(json => console.log(json)).catch(err => console.error(err));
 }
 
+async function sendAllOrders(datas){
+  let message = "";
+  
+  datas.forEach(order => {
+    message = message + "===========\n";
+    order.forEach(field => {
+      message = message + `${field} \n`
+    })
+  });
+  
+  const options = {
+    method: 'POST',
+    headers: {
+      accept: 'application/json',
+      'content-type': 'application/json',
+      authorization: process.env.TOKEN_API
+    },
+    body: JSON.stringify({
+      typing_time: 0,
+      to: '5515998282773@s.whatsapp.net',
+      body: message
+    })
+  };
+
+  fetch(url, options).then(res => res.json())
+  .then(json => console.log(json)).catch(err => console.error(err));
+}
+
 module.exports = {
   sendListCommands: sendListCommands,
   sendStructAddOrder: sendStructAddOrder,
   sendStructGetOrderSpecified: sendStructGetOrderSpecified,
   sendStructGetAllOrder: sendStructGetAllOrder,
-  sendStructUpdateOrderSpecified: sendStructUpdateOrderSpecified
+  sendStructUpdateOrderSpecified: sendStructUpdateOrderSpecified,
+  sendAllOrders: sendAllOrders
 }
