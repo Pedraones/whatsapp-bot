@@ -7,8 +7,8 @@ function treatmentGetOrderSpecified(message){
 
 function treatmentAddOrder(message){
     const nome = message[1].replace("Nome: ", "");
-    const pedido = message[2].replace("Pedido: ", "");
-    const valor = message[3].replace("Valor: ", "");
+    const pedido = message[2].replace("Valor: ", "");
+    const valor = message[3].replace("Pedido: ", "");
     
     const messageTreated = [message[0], nome, pedido, valor];
     return messageTreated;
