@@ -1,25 +1,17 @@
 const client = require('./instance-bd');
 
-async function getWithoutParameters(){
-    await client.client.connect();
-    
-    const result = await client.client.query('SELECT (idpedido, clientepedido, comandapedido, valorpedido) FROM pedidos')
-    
-    await client.client.end();
+async function getWithoutParameters(){    
+    const result = await client.pool.query('SELECT (idpedido, clientepedido, comandapedido, valorpedido) FROM pedidos')
 
-    console.log(result.rows);
     return result.rows;
 }
 
 async function getWithParameters(nome){
     if(nome){
         const value = [nome.toLowerCase()];
-        await client.client.connect();
         
-        const result = await client.client.query('SELECT (idpedido, clientepedido, comandapedido, valorpedido) FROM pedidos WHERE clientepedido = $1', value);
-        await client.client.end();
+        const result = await client.pool.query('SELECT (idpedido, clientepedido, comandapedido, valorpedido) FROM pedidos WHERE clientepedido = $1', value);
         
-        console.log(result.rows);
         return result.rows;
     }
     else{
@@ -29,11 +21,9 @@ async function getWithParameters(nome){
 
 async function createNewOrder(nomeCliente, valor, comanda) {
     if(nomeCliente && valor && comanda){
-        await client.client.connect();
         const values = [comanda, valor, false, nomeCliente];
 
-        await client.client.query(`INSERT INTO pedidos(comandapedido, valorpedido, finalizadopedido, clientepedido) VALUES($1, $2, $3, $4)`, values);
-        await client.client.end();
+        await client.pool.query(`INSERT INTO pedidos(comandapedido, valorpedido, finalizadopedido, clientepedido) VALUES($1, $2, $3, $4)`, values);
     }
     else{
         return "Verifique se voce inseriu todos os dados";
@@ -42,11 +32,9 @@ async function createNewOrder(nomeCliente, valor, comanda) {
 
 async function deleteOrder(idOrder) {
     if(idOrder){
-        await client.client.connect();
         const values = [idOrder];
 
-        await client.client.query(`DELETE FROM pedidos WHERE idpedido = $1`, values);
-        await client.client.end();
+        await client.pool.query(`DELETE FROM pedidos WHERE idpedido = $1`, values);
     }
     else{
         return "Verifique se voce inseriu todos os dados";
@@ -59,16 +47,14 @@ async function updateOrder(idOrder, fieldWillUpdate, value) {
             await deleteOrder(idOrder);
         }
         else{
-            await client.client.connect();
             const values = [value, idOrder];
 
-            await client.client.query(`UPDATE pedidos SET ${fieldWillUpdate}pedido = $1 WHERE idpedido = $2`, values);
+            await client.pool.query(`UPDATE pedidos SET ${fieldWillUpdate}pedido = $1 WHERE idpedido = $2`, values);
         }
     }
     else{
         return "Verifique se voce inseriu todos os dados";
     }
-    await client.client.end();
 }
 
 module.exports = {
