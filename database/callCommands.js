@@ -27,6 +27,11 @@ async function callComandBd(datas){
             
             send.sendAllOrders(orders);
             break;
+        
+        case "#ADICIONAR PEDIDO#":
+            console.log(datas);
+            await commands.createNewOrder(datas[1], datas[2], datas[3]);
+            
     }
 }
 
