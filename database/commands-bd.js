@@ -43,13 +43,17 @@ async function deleteOrder(idOrder) {
 
 async function updateOrder(idOrder, fieldWillUpdate, value) {
     if(fieldWillUpdate && value){
-        if(fieldWillUpdate == "finalizado" && value == true){
+        const verifyFieldIsStateOrder = fieldWillUpdate.includes("finalizado");
+        const verifyNewValueIsS = value.includes('s');
+
+        if(verifyFieldIsStateOrder && verifyNewValueIsS){
             await deleteOrder(idOrder);
         }
         else{
             const values = [value, idOrder];
+            const query = `UPDATE pedidos SET ${fieldWillUpdate}pedido = $1 WHERE idpedido = $2`
 
-            await client.pool.query(`UPDATE pedidos SET ${fieldWillUpdate}pedido = $1 WHERE idpedido = $2`, values);
+            await client.pool.query(query, values);
         }
     }
     else{
