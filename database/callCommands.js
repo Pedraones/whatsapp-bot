@@ -30,6 +30,7 @@ async function callComandBd(datas){
         
         case "#ADICIONAR PEDIDO#":
             await commands.createNewOrder(datas[1], datas[2], datas[3]);
+            break;
 
         case "#ATUALIZAR PEDIDO#":
             //ids: 4, 5, 6
@@ -37,6 +38,7 @@ async function callComandBd(datas){
             const fieldWillUpdate = datas[2];
             const newData = datas[3];
             await commands.updateOrder(idOrder, fieldWillUpdate, newData);
+            break;
     }
 }
 
