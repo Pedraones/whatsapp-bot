@@ -7,12 +7,18 @@ function treatmentGetOrderSpecified(message){
 
 function treatmentAddOrder(message){
     const nome = message[1].replace("Nome: ", "");
-    const pedido = message[2].replace("Valor: ", "");
-    const valor = message[3].replace("Pedido: ", "");
+    let valor = message[2].replace("Valor: ", "");
+    const pedido = message[3].replace("Pedido: ", "");
     
-    const messageTreated = [message[0], nome, pedido, valor];
+    const havePoint = valor.includes(".");
+
+    if(!havePoint) valor = valor.concat(".00");
+
+    const messageTreated = [message[0], pedido, valor, nome];
+
     return messageTreated;
 }
+
 function treatmentUpdateOrder(message){
     const id = message[1].replace("Id do pedido: ", "");
     const campoSerAlterado = message[2].replace("A informação que deseja alterar: ", "");
