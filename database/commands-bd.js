@@ -50,6 +50,7 @@ async function updateOrder(idOrder, fieldWillUpdate, value) {
             await deleteOrder(idOrder);
         }
         else{
+            if(fieldWillUpdate == "nome") fieldWillUpdate = "cliente";
             const values = [value, idOrder];
             const query = `UPDATE pedidos SET ${fieldWillUpdate}pedido = $1 WHERE idpedido = $2`
 
