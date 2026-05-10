@@ -33,7 +33,6 @@ async function callComandBd(datas){
             break;
 
         case "#ATUALIZAR PEDIDO#":
-            //ids: 4, 5, 6
             const idOrder = datas[1];
             const fieldWillUpdate = datas[2];
             const newData = datas[3];
