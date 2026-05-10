@@ -1,10 +1,10 @@
 const express = require('express');
 const app = express();
-const verify = require('./verifyMessages');
+const verify = require('../verifications/verifyMessages');
 const send = require('../api/sendMessages');
 const call = require('../database/callCommands');
 const commands = require('../database/commands-bd');
-const verifyReq = require('./verifyReq');
+const verifyReq = require('../verifications/verifyReq');
 
 app.use(express.json());
 

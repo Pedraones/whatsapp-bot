@@ -1,6 +1,6 @@
 const commands = require('./commands-bd');
 const send = require('../api/sendMessages')
-const treatment = require('./treatmentResponse')
+const treatment = require('../treatments/treatmentResponse')
 
 async function callComandBd(datas){
     const action = datas[0];

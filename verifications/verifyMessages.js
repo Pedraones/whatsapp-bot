@@ -1,5 +1,5 @@
 const send = require('../api/sendMessages');
-const treatment = require('./treatmentMessages');
+const treatment = require('../treatments/treatmentMessages');
 
 async function getMessages(messages){
     const chatCorrect = "5515996180975@s.whatsapp.net"
