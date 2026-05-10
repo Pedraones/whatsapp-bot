@@ -22,7 +22,7 @@ async function sendListCommands(){
     },
     body: JSON.stringify({
       typing_time: 0, 
-      to: '5515998282773@s.whatsapp.net', 
+      to: '5515996180975@s.whatsapp.net', 
       body: message
     })
   };
@@ -36,7 +36,7 @@ async function sendStructAddOrder(){
                 "Nome: \n" + 
                 "Valor: \n" +
                 "Pedido: \n" + 
-                "Mais instrucoes: Mantenha os campos sinalizados anteriormente, apenas complete com as informacoes necessarias; Em 'Valor' nao insira 'R$', apenas coloque o valor, separando inteiros de centavos com um ponto(.);";
+                "Mais instrucoes: Apenas insira as informacoes necessarias, respeitando a ordem acima; Em 'Valor' nao insira 'R$', apenas coloque o valor, separando inteiros de centavos com um ponto(.);";
 
   const options = {
     method: 'POST',
@@ -47,7 +47,7 @@ async function sendStructAddOrder(){
     },
     body: JSON.stringify({
       typing_time: 0,
-      to: '5515998282773@s.whatsapp.net',
+      to: '5515996180975@s.whatsapp.net',
       body: message
     })
   };
@@ -59,7 +59,7 @@ async function sendStructAddOrder(){
 async function sendStructGetOrderSpecified(){
   var message = "Para visualizar um pedido siga o seguinte formato: \n" + 
                 "Nome do cliente que tem pedido: \n" + 
-                "Mantenha o texto anterior, apenas insira o nome do cliente a frente com 1 espaco depois dos ':'";
+                "Apenas digite o nome do cliente";
 
   const options = {
     method: 'POST',
@@ -70,7 +70,7 @@ async function sendStructGetOrderSpecified(){
     },
     body: JSON.stringify({
       typing_time: 0,
-      to: '5515998282773@s.whatsapp.net',
+      to: '5515996180975@s.whatsapp.net',
       body: message
     })
   };
@@ -91,7 +91,7 @@ async function sendStructGetAllOrder(){
     },
     body: JSON.stringify({
       typing_time: 0,
-      to: '5515998282773@s.whatsapp.net',
+      to: '5515996180975@s.whatsapp.net',
       body: message
     })
   };
@@ -105,7 +105,7 @@ async function sendStructUpdateOrderSpecified(){
                 "Id do pedido: \n" +
                 "A informação que deseja alterar: (comanda, valor, nome do cliente, finalizado)\n" + 
                 "Nova informacação: \n" + 
-                "Mantenha o texto anterior, apenas insira o id do pedido (para ver o id, faça uma consulta do pedido, #VER PEDIDO ESPECIFICO#), a informação a ser alterada (da forma como está, mas para mudar o nome do cliente coloque apenas 'nome') e a nova informação (para 'finalizado', escreva s(sim))";
+                "Insira o id do pedido (para ver o id, faça uma consulta do pedido, #VER PEDIDO ESPECIFICO#), a informação a ser alterada (da forma como está, mas para mudar o nome do cliente coloque apenas 'nome') e a nova informação (para 'finalizado', escreva s(sim)). As informações devem ser inseridas na mesma ordem descrita acima";
 
   const options = {
     method: 'POST',
@@ -116,7 +116,7 @@ async function sendStructUpdateOrderSpecified(){
     },
     body: JSON.stringify({
       typing_time: 0,
-      to: '5515998282773@s.whatsapp.net',
+      to: '5515996180975@s.whatsapp.net',
       body: message
     })
   };
@@ -144,7 +144,7 @@ async function sendAllOrders(datas){
     },
     body: JSON.stringify({
       typing_time: 0,
-      to: '5515998282773@s.whatsapp.net',
+      to: '5515996180975@s.whatsapp.net',
       body: message
     })
   };

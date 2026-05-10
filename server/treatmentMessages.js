@@ -1,14 +1,14 @@
 function treatmentGetOrderSpecified(message){
-    const nome = message[1].replace("Nome do cliente que tem pedido: ", "");
+    const nome = message[1];
 
     const messageTreated = [message[0], nome];
     return messageTreated;
 }
 
 function treatmentAddOrder(message){
-    const nome = message[1].replace("Nome: ", "");
-    let valor = message[2].replace("Valor: ", "");
-    const pedido = message[3].replace("Pedido: ", "");
+    const nome = message[1];
+    let valor = message[2];
+    const pedido = message;
     
     const havePoint = valor.includes(".");
 
@@ -20,9 +20,9 @@ function treatmentAddOrder(message){
 }
 
 function treatmentUpdateOrder(message){
-    const id = message[1].replace("Id do pedido: ", "");
-    const campoSerAlterado = message[2].replace("A informação que deseja alterar: ", "");
-    let novaInformacao = message[3].replace("Nova informação: ", "");
+    const id = message[1];
+    const campoSerAlterado = message[2];
+    let novaInformacao = message[3];
 
     if(campoSerAlterado == "finalizado" && novaInformacao == "s") novaInformacao = true;
 
