@@ -5,3 +5,11 @@ test("Teste para verificação do tratamento de mensagem para visualizar um pedi
 
     expect(treatment.treatmentGetOrderSpecified(messageTreated)).toEqual(["#VER PEDIDO ESPECIFICO#", "pedro"]);
 });
+
+test("Teste para verificação do tratamento de mensagem para adicionar um pedido", () => {
+    const newOrder = ["#ADICIONAR PEDIDO#", "Beatriz", "20.5", "2 broches pequenos"];
+
+    const messageTreated = treatment.treatmentAddOrder(newOrder);
+
+    expect(["#ADICIONAR PEDIDO#", "2 broches pequenos", "20.5", "Beatriz"]).toEqual(messageTreated);
+});
