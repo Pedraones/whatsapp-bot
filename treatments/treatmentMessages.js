@@ -8,7 +8,7 @@ function treatmentGetOrderSpecified(message){
 function treatmentAddOrder(message){
     const nome = message[1];
     let valor = message[2];
-    const pedido = message;
+    const pedido = message[3];
     
     const havePoint = valor.includes(".");
 
