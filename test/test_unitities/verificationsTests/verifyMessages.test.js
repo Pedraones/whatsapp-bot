@@ -42,7 +42,7 @@ test("Teste de verificação de quando a mensagem é o comando de LISTAR COMANDO
     const res = await verify.getMessages(message);
 
     expect(res).toEqual(command);
-})
+});
 
 test("Teste de verificação de quando a mensagem é o comando de INSTRUCAO VER TODOS OS PEDIDOS", async() => {
     const message = [
@@ -58,4 +58,20 @@ test("Teste de verificação de quando a mensagem é o comando de INSTRUCAO VER 
     const res = await verify.getMessages(message);
 
     expect(res).toEqual(command);
-})
+});
+
+test("Teste de verificação de quando a mensagem é o comando de INSTRUCAO VER PEDIDO ESPECIFICO", async() => {
+    const message = [
+        {
+            chat_id: "5515996180975@s.whatsapp.net",
+            text: {
+                body: "#INSTRUCAO VER PEDIDO ESPECIFICO#"
+            },
+        }
+    ];
+
+    const command = ["#INSTRUCAO VER PEDIDO ESPECIFICO#"];
+    const res = await verify.getMessages(message);
+
+    expect(res).toEqual(command);
+});
