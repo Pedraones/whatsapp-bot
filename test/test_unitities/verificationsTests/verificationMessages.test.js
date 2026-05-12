@@ -8,7 +8,7 @@ test("Teste de verificação do contato que enviou mensagem", async () => {
         }
     ];
 
-    const res = verify.getMessages(message);
+    const res = await verify.getMessages(message);
 
-    expect(res).toBeNull();
+    expect(res).toBeUndefined();
 });
