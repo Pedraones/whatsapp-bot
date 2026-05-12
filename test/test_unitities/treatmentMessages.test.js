@@ -28,4 +28,19 @@ test("Atualizar um pedido no campo cliente", () => {
     const messageTreated = treatment.treatmentUpdateOrder(newDatas);
 
     expect(messageTreated).toEqual(["#ATUALIZAR PEDIDO#", 2, "cliente", "pedro"]);
-})
+});
+
+test("Tratamento simples de mensagem da API", () => {
+    const body = `#ADICIONAR PEDIDO# \n` +
+                    `Beatriz \n` +
+                    `20.4 \n` +
+                    `3 broches médios`;
+
+    const message = {
+        body: `${body}`
+    }
+
+    const messageTreated = treatment.simpleTreatmentMessage(message);
+
+    expect(message.body.split("\n")).toEqual(messageTreated);
+});
