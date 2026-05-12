@@ -45,10 +45,11 @@ async function getMessages(messages){
                             break;
                     }
                 }
-            }                       
+            }              
         });
         return messageTreated;
     }
+    return;
 }
 
 module.exports = {
