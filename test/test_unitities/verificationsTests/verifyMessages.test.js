@@ -75,3 +75,19 @@ test("Teste de verificação de quando a mensagem é o comando de INSTRUCAO VER 
 
     expect(res).toEqual(command);
 });
+
+test("Teste de verificação de quando a mensagem é o comando de INSTRUCAO ADICIONAR PEDIDO", async() => {
+    const message = [
+        {
+            chat_id: "5515996180975@s.whatsapp.net",
+            text: {
+                body: "#INSTRUCAO ADICIONAR PEDIDO#"
+            },
+        }
+    ];
+
+    const command = ["#INSTRUCAO ADICIONAR PEDIDO#"];
+    const res = await verify.getMessages(message);
+
+    expect(res).toEqual(command);
+});
