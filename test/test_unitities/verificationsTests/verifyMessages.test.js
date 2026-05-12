@@ -12,3 +12,18 @@ test("Teste de verificação do contato que enviou mensagem", async () => {
 
     expect(res).toBeUndefined();
 });
+
+test("Teste de verificação de quando a mensagem não é um comando pro bot", async() => {
+    const message = [
+        {
+            chat_id: "5515998942168@s.whatsapp.net",
+            text: {
+                body: "Verificando o contato que enviou a mensagem"
+            },
+        }
+    ];
+
+    const res = await verify.getMessages(message);
+
+    expect(res).toBeUndefined();
+});
