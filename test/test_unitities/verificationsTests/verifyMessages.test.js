@@ -91,3 +91,19 @@ test("Teste de verificação de quando a mensagem é o comando de INSTRUCAO ADIC
 
     expect(res).toEqual(command);
 });
+
+test("Teste de verificação de quando a mensagem é o comando de INSTRUCAO ATUALIZAR PEDIDO", async() => {
+    const message = [
+        {
+            chat_id: "5515996180975@s.whatsapp.net",
+            text: {
+                body: "#INSTRUCAO ATUALIZAR PEDIDO#"
+            },
+        }
+    ];
+
+    const command = ["#INSTRUCAO ATUALIZAR PEDIDO#"];
+    const res = await verify.getMessages(message);
+
+    expect(res).toEqual(command);
+});
