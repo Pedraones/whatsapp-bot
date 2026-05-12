@@ -21,3 +21,11 @@ test("Atualizar um pedido no campo finalizado", () => {
 
     expect(messageTreated).toEqual(["#ATUALIZAR PEDIDO#", 2, "finalizado", true]);
 });
+
+test("Atualizar um pedido no campo cliente", () => {
+    const newDatas = ["#ATUALIZAR PEDIDO#", 2, "cliente", "pedro"];
+    
+    const messageTreated = treatment.treatmentUpdateOrder(newDatas);
+
+    expect(messageTreated).toEqual(["#ATUALIZAR PEDIDO#", 2, "cliente", "pedro"]);
+})
