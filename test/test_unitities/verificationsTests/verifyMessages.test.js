@@ -107,3 +107,19 @@ test("Teste de verificação de quando a mensagem é o comando de INSTRUCAO ATUA
 
     expect(res).toEqual(command);
 });
+
+test("Teste de verificação de quando a mensagem é o comando de VER PEDIDO ESPECIFICO", async() => {
+    const message = [
+        {
+            chat_id: "5515996180975@s.whatsapp.net",
+            text: {
+                body: "#VER PEDIDO ESPECIFICO#\n" + "pedro"
+            },
+        }
+    ];
+
+    const command = ["#VER PEDIDO ESPECIFICO#","pedro"];
+    const res = await verify.getMessages(message);
+
+    expect(res).toEqual(command);
+});
