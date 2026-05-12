@@ -123,3 +123,19 @@ test("Teste de verificação de quando a mensagem é o comando de VER PEDIDO ESP
 
     expect(res).toEqual(command);
 });
+
+test("Teste de verificação de quando a mensagem é o comando de ADICIONAR PEDIDO", async() => {
+    const message = [
+        {
+            chat_id: "5515996180975@s.whatsapp.net",
+            text: {
+                body: "#ADICIONAR PEDIDO#\n" + "pedro\n" + "20.0\n" + "5 chaveiros de biscuit"
+            },
+        }
+    ];
+
+    const command = ["#ADICIONAR PEDIDO#","5 chaveiros de biscuit","20.0","pedro"];
+    const res = await verify.getMessages(message);
+
+    expect(res).toEqual(command);
+});
