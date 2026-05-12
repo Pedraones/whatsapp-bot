@@ -27,3 +27,19 @@ test("Teste de verificação de quando a mensagem não é um comando pro bot", a
 
     expect(res).toBeUndefined();
 });
+
+test("Teste de verificação de quando a mensagem é o comando de LISTAR COMANDOS", async() => {
+    const message = [
+        {
+            chat_id: "5515998942168@s.whatsapp.net",
+            text: {
+                body: "#LISTAR COMANDOS#"
+            },
+        }
+    ];
+
+    const command = ["#LISTAR COMANDOS#"];
+    const res = await verify.getMessages(message);
+
+    expect(res).toEqual(command);
+})
