@@ -43,3 +43,19 @@ test("Teste de verificação de quando a mensagem é o comando de LISTAR COMANDO
 
     expect(res).toEqual(command);
 })
+
+test("Teste de verificação de quando a mensagem é o comando de INSTRUCAO VER TODOS OS PEDIDOS", async() => {
+    const message = [
+        {
+            chat_id: "5515996180975@s.whatsapp.net",
+            text: {
+                body: "#INSTRUCAO VER TODOS OS PEDIDOS#"
+            },
+        }
+    ];
+
+    const command = ["#INSTRUCAO VER TODOS OS PEDIDOS#"];
+    const res = await verify.getMessages(message);
+
+    expect(res).toEqual(command);
+})
