@@ -27,8 +27,14 @@ async function sendListCommands(){
     })
   };
 
-  fetch(url, options).then(res => res.json())
-  .then(json => console.log(json)).catch(err => console.error(err));
+  try{
+    fetch(url, options).then(res => res.json());
+    return true;
+  }
+  catch(error){
+    console.log(error);
+    return false;
+  }
 }
 
 async function sendStructAddOrder(){
