@@ -13,23 +13,18 @@ async function getMessages(messages){
                 if(messageTreated){
                     switch (messageTreated[0]){
                         case "#LISTAR COMANDOS#":
-                            send.sendListCommands();
                             break;
 
                         case "#INSTRUCAO VER TODOS OS PEDIDOS#":
-                            send.sendStructGetAllOrder();
                             break;
                             
                         case "#INSTRUCAO VER PEDIDO ESPECIFICO#":
-                            send.sendStructGetOrderSpecified()
                             break;
                         
                         case "#INSTRUCAO ADICIONAR PEDIDO#":
-                            send.sendStructAddOrder();
                             break;
                         
                         case "#INSTRUCAO ATUALIZAR PEDIDO#":
-                            send.sendStructUpdateOrderSpecified();
                             break;
 
                         case "#VER PEDIDO ESPECIFICO#":
