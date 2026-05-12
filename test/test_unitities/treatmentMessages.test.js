@@ -1,4 +1,4 @@
-const treatment = require('../../../treatments/treatmentMessages');
+const treatment = require('../../treatments/treatmentMessages');
 
 test("Teste para verificação do tratamento de mensagem para visualizar um pedido especifico", () => {
     const messageTreated = ["#VER PEDIDO ESPECIFICO#", "pedro"];
