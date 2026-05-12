@@ -139,3 +139,19 @@ test("Teste de verificação de quando a mensagem é o comando de ADICIONAR PEDI
 
     expect(res).toEqual(command);
 });
+
+test("Teste de verificação de quando a mensagem é o comando de ATUALIZAR PEDIDO, alterando o campo nome", async() => {
+    const message = [
+        {
+            chat_id: "5515996180975@s.whatsapp.net",
+            text: {
+                body: "#ATUALIZAR PEDIDO#\n" + "13\n" + "nome do cliente\n" + "miguel"
+            },
+        }
+    ];
+
+    const command = ["#ATUALIZAR PEDIDO#","13","nome do cliente","miguel"];
+    const res = await verify.getMessages(message);
+
+    expect(res).toEqual(command);
+});
