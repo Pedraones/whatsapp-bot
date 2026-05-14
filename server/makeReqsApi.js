@@ -1,3 +1,5 @@
+const send = require('../api/sendMessages');
+
 async function makeReqsWithApi(req){
     switch (req){
         case "#LISTAR COMANDOS#":
@@ -20,6 +22,8 @@ async function makeReqsWithApi(req){
             send.sendStructUpdateOrderSpecified();
             break;
     };
+
+    return true;
 }
 
 module.exports = {
