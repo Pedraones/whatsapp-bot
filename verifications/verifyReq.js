@@ -12,7 +12,7 @@ function verifyReq(channelIdParam, rawHeaders){
     if(channelId == channelIdOfParam && 
         fieldsRawHeaders[0] == baggage && 
         fieldsRawHeaders[1] == xForwradedFor && 
-        fieldsRawHeaders[2] == xForwradedHost) return true;
+        fieldsRawHeaders[2] == xForwradedHost) return "Acesso permitido";
 
     return false;
 }
