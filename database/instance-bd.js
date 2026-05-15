@@ -1,7 +1,7 @@
 const { Pool } = require('pg');
 require('dotenv').config();
 
-async function initPool(){
+function initPool(){
     try{
         const pool = new Pool({
             user: process.env.USERNAME_BD,
@@ -19,5 +19,5 @@ async function initPool(){
 }
 
 module.exports = {
-    initPool: initPool  
+    initPool: initPool
 }
