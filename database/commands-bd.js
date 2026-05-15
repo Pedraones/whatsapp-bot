@@ -1,9 +1,14 @@
-const client = require('./instance-bd');
+const instance = require('./instance-bd');
+const client = instance.initPool();
 
-async function getWithoutParameters(){    
-    const result = await client.pool.query('SELECT (idpedido, clientepedido, comandapedido, valorpedido) FROM pedidos')
-
-    return result.rows;
+async function getWithoutParameters(){ 
+    try{
+        const result = await client.query('SELECT (idpedido, clientepedido, comandapedido, valorpedido) FROM pedidos')
+        return result.rows;
+    }
+    catch(error){
+        return null;
+    }
 }
 
 async function getWithParameters(nome){
