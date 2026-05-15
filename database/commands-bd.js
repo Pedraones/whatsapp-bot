@@ -32,8 +32,14 @@ async function getWithParameters(nome){
 async function createNewOrder(nomeCliente, valor, comanda) {
     if(nomeCliente && valor && comanda){
         const values = [comanda, valor, false, nomeCliente];
-
-        await client.pool.query(`INSERT INTO pedidos(comandapedido, valorpedido, finalizadopedido, clientepedido) VALUES($1, $2, $3, $4)`, values);
+    
+        try{
+            await client.query(`INSERT INTO pedidos(comandapedido, valorpedido, finalizadopedido, clientepedido) VALUES($1, $2, $3, $4)`, values);
+            return 'Pedido adicionado';
+        }
+        catch(error){
+            return error;
+        }
     }
     else{
         return "Verifique se voce inseriu todos os dados";
