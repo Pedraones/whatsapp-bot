@@ -9,3 +9,8 @@ test("Verificação se o comando de ver pedido especifico esta funcionando", asy
     const res = await commands.getWithParameters("pedro");
     expect(res).toBeDefined();
 });
+
+test("Verificação se o comando de adicionar pedido esta funcionando com '.' definido no campo valor", async() => {
+    const res = await commands.createNewOrder("teste automatizado", 50.3, "4 broches");
+    expect(res).toBe('Pedido adicionado');
+});
