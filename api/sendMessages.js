@@ -86,8 +86,13 @@ async function sendStructGetOrderSpecified(){
     })
   };
 
-  fetch(url, options).then(res => res.json())
-  .then(json => console.log(json)).catch(err => console.error(err));
+  try{
+    fetch(url, options).then(res => res.json());
+    return true;
+  }
+  catch(error){
+    return error;
+  }
 }
 
 async function sendStructGetAllOrder(){
