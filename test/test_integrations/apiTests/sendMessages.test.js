@@ -19,3 +19,11 @@ test("Teste de requisição para enviar a estrutura de como ver todos os pedidos
 test("Teste de requisição para enviar a estrutura de como atualizar um pedido", async() => {
     expect(await sendMessages.sendStructUpdateOrderSpecified()).toBeTruthy();
 });
+
+test("Teste de requisição para enviar todos os pedidos existentes no banco", async() => {
+    const pedidos = [
+        [1, "pedro", "4 broches", "23.5"],
+        [2, "elcio", "64 broches", "203.5"],
+    ];
+    expect(await sendMessages.sendAllOrders(pedidos)).toBeTruthy();
+});
