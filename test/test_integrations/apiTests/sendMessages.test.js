@@ -15,3 +15,7 @@ test("Teste de requisição para enviar a estrutura de como ver um pedido especi
 test("Teste de requisição para enviar a estrutura de como ver todos os pedidos", async() => {
     expect(await sendMessages.sendStructGetAllOrder()).toBeTruthy();
 });
+
+test("Teste de requisição para enviar a estrutura de como atualizar um pedido", async() => {
+    expect(await sendMessages.sendStructUpdateOrderSpecified()).toBeTruthy();
+});
