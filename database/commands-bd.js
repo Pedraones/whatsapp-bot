@@ -15,9 +15,14 @@ async function getWithParameters(nome){
     if(nome){
         const value = [nome.toLowerCase()];
         
-        const result = await client.pool.query('SELECT (idpedido, clientepedido, comandapedido, valorpedido) FROM pedidos WHERE clientepedido = $1', value);
-        
-        return result.rows;
+        try{
+            const result = await client.query('SELECT (idpedido, clientepedido, comandapedido, valorpedido) FROM pedidos WHERE clientepedido = $1', value);
+            
+            return result.rows;
+        }
+        catch(error){
+            return error;
+        }
     }
     else{
         console.log("passe um nome");
