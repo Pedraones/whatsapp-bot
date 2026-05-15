@@ -50,7 +50,13 @@ async function deleteOrder(idOrder) {
     if(idOrder){
         const values = [idOrder];
 
-        await client.pool.query(`DELETE FROM pedidos WHERE idpedido = $1`, values);
+        try{
+            await client.query(`DELETE FROM pedidos WHERE idpedido = $1`, values);
+            return 'Pedido deletado';
+        }
+        catch(error){
+            return error;
+        }
     }
     else{
         return "Verifique se voce inseriu todos os dados";
